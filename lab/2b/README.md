@@ -1,0 +1,2 @@
+## d = ('>', '<>')
+## anti zavisimost
