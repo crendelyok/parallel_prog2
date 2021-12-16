@@ -3,8 +3,8 @@
 #include <math.h>
 #include <mpi.h>
 
-#define ISIZE 1000
-#define JSIZE 1000
+#define ISIZE 4000
+#define JSIZE 4000
 
 // parallel version
 
@@ -73,6 +73,7 @@ int main()
 				 MPI_STATUS_IGNORE);
 			collected ++;
 		}	
+		printf("elapsed time: %f\n", MPI_Wtime() - starttime);
 		// Writing
 		FILE *ff;
 		ff = fopen("result_default_parallel.txt", "w+");
@@ -85,8 +86,8 @@ int main()
 			fprintf(ff, "\n");
 		}
 		fclose(ff);
-		printf("elapsed time: %f\n", MPI_Wtime() - starttime);
 	}
+	free(a);
 	MPI_Finalize();
 	return 0;
 }
